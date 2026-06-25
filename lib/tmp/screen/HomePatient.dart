@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:alora_ai/commons/AttiBottomNavi.dart';
+import 'package:alora_ai/commons/AloraBottomNavi.dart';
 import 'package:alora_ai/commons/colorPallet.dart';
 import 'package:alora_ai/patient/screen/routine_schedule/TodayToDo.dart';
 import 'package:alora_ai/tmp/screen/Menu.dart';
@@ -41,13 +41,13 @@ class _HomePatientState extends State<HomePatient> {
   FlutterTts flutterTts = FlutterTts();
   String weatherStatus = '';
   final List<String> defaultImg = [
-    'lib/assets/Atti/Coffee.png',
-    'lib/assets/Atti/EatingStar.png',
-    'lib/assets/Atti/Napping.png',
-    'lib/assets/Atti/ReadingBook.png',
-    'lib/assets/Atti/Soccer.png',
-    'lib/assets/Atti/Stars.png',
-    'lib/assets/Atti/Walking.png',
+    'lib/assets/Alora/Coffee.png',
+    'lib/assets/Alora/EatingStar.png',
+    'lib/assets/Alora/Napping.png',
+    'lib/assets/Alora/ReadingBook.png',
+    'lib/assets/Alora/Soccer.png',
+    'lib/assets/Alora/Stars.png',
+    'lib/assets/Alora/Walking.png',
   ];
   final List<String> topImg = [];
   late String selectedImage = '';
@@ -306,14 +306,14 @@ class _HomePatientState extends State<HomePatient> {
     if (weatherStatus.contains('rain') ||
         weatherStatus.contains('mist') ||
         weatherStatus.contains('drizzel')) {
-      topImg.add('lib/assets/Atti/rainy.png');
+      topImg.add('lib/assets/Alora/rainy.png');
     }
     if (weatherStatus.contains('clear')) {
-      topImg.add('lib/assets/Atti/sunny.png');
+      topImg.add('lib/assets/Alora/sunny.png');
     }
 
     // 계절 이미지를 추가합니다.
-    topImg.add('lib/assets/Atti/$seasonImage');
+    topImg.add('lib/assets/Alora/$seasonImage');
 
     // 기본 이미지 리스트에 topImg 리스트를 추가합니다.
     List<String> updatedImgList = List.from(defaultImg)..addAll(topImg);
@@ -462,7 +462,7 @@ class _HomePatientState extends State<HomePatient> {
           ),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),

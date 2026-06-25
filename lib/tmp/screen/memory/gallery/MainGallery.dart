@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:alora_ai/commons/AttiBottomNavi.dart';
+import 'package:alora_ai/commons/AloraBottomNavi.dart';
 import 'package:alora_ai/data/memory/memory_note_controller.dart';
 import 'package:alora_ai/tmp/screen/memory/gallery/GalleryOption.dart';
 import 'package:alora_ai/tmp/screen/memory/gallery/MemoryDetail.dart';
@@ -192,7 +192,7 @@ class _MainGalleryState extends State<MainGallery> {
                 mainAxisAlignment: MainAxisAlignment.center, // 가운데 정렬
                 children: [
                   Image(
-                      image: const AssetImage('lib/assets/Atti/Stars.png'),
+                      image: const AssetImage('lib/assets/Alora/Stars.png'),
                       width: MediaQuery.of(context).size.width * 0.46),
                 ],
               ),
@@ -319,7 +319,7 @@ class _MainGalleryState extends State<MainGallery> {
           ),
         ),
       ]),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),

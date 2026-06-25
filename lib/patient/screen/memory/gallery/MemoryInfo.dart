@@ -4,7 +4,7 @@ import 'package:alora_ai/patient/screen/memory/chat/ChatHistory.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../data/memory/memory_note_model.dart';
-import '../../../../commons/AttiBottomNavi.dart';
+import '../../../../commons/AloraBottomNavi.dart';
 
 class MemoryInfo extends StatefulWidget {
   final MemoryNoteModel memory;
@@ -114,7 +114,7 @@ class _MemoryInfoState extends State<MemoryInfo> {
           ),
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {

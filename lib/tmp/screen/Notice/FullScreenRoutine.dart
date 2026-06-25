@@ -95,7 +95,7 @@ class _FullScreenRoutineState extends State<FullScreenRoutine> {
           SizedBox(height: height * 0.02,),
           Container(
             alignment: Alignment.center,
-            child: Image.asset('lib/assets/Atti/$randomImageName',
+            child: Image.asset('lib/assets/Alora/$randomImageName',
                 height: height * 0.26,
                 fit: BoxFit.fitHeight),
           ),

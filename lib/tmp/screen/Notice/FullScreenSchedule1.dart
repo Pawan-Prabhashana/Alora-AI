@@ -102,7 +102,7 @@ class _FullScreenScheduleState extends State<FullScreenSchedule> {
           SizedBox(height: height * 0.03,),
           Container(
             alignment: Alignment.center,
-            child: Image.asset('lib/assets/Atti/$randomImageName',
+            child: Image.asset('lib/assets/Alora/$randomImageName',
                 height: height * 0.27,
                 fit: BoxFit.fitHeight),
           ),

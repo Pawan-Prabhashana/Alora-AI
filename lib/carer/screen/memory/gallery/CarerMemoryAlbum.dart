@@ -5,7 +5,7 @@ import 'package:alora_ai/patient/screen/memory/gallery/MemoryInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../commons/AttiBottomNavi.dart';
+import '../../../../commons/AloraBottomNavi.dart';
 import '../../../../commons/BottomNextButton.dart';
 import '../../../../data/memory/memory_note_service.dart';
 import 'package:alora_ai/patient/screen/routine_schedule/CustomModal.dart';
@@ -65,7 +65,7 @@ class _CarerMemoryAlbumState extends State<CarerMemoryAlbum> {
           ),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {

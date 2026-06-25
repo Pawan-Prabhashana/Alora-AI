@@ -126,7 +126,7 @@ class ChatMessage extends StatelessWidget {
               children: <Widget>[
                 if (message.sender == 'Atti')
                   const CircleAvatar(
-                    backgroundImage: AssetImage('lib/assets/Atti/AttiFace.png'),
+                    backgroundImage: AssetImage('lib/assets/Alora/AloraFace.png'),
                   ),
                 const SizedBox(width: 8),
                 Container(

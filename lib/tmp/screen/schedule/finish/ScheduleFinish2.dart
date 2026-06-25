@@ -30,7 +30,7 @@ class ScheduleFinish2 extends StatelessWidget {
               Container(
                 //margin: EdgeInsets.only(left: 50),
                 alignment: Alignment.center,
-                child: Image.asset('lib/assets/Atti/standingAtti.png',
+                child: Image.asset('lib/assets/Alora/standingAlora.png',
                   width: MediaQuery.of(context).size.width * 0.8,
                   fit: BoxFit.fitWidth,
                 ),

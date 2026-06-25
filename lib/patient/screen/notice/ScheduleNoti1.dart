@@ -147,7 +147,7 @@ class _ScheduleNoti1State extends State<ScheduleNoti1> {
             Container(
               alignment: Alignment.center,
               child: Image.asset(
-                  'lib/assets/Atti/$randomImageName',
+                  'lib/assets/Alora/$randomImageName',
                   height: width * 0.48,
                   fit: BoxFit.fitHeight),
             ),
