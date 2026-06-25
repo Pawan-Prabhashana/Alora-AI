@@ -5,6 +5,7 @@ import 'package:alora_ai/data/memory/memory_note_model.dart';
 import 'package:alora_ai/data/report/dangerword_controller.dart';
 import 'package:alora_ai/data/report/emotion_controller.dart';
 import 'package:alora_ai/data/memory/Chatbot.dart';
+import 'package:alora_ai/data/memory/assistant_sender.dart';
 import 'package:alora_ai/patient/screen/memory/chat/BeforeSave.dart';
 import 'package:alora_ai/patient/screen/memory/chat/ChatBubble.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import '../../../../commons/SimpleAppBar.dart';
 
 class ChatMessage {
-  final String sender; // I or ATTI
+  final String sender; // kUserSender ('I') or kAssistantSender ('Alora'); legacy assistant tags still recognized via isAssistantSender
   final String text; // 대화 내용
   final DateTime date; // 시간
   ChatMessage({
@@ -105,17 +106,17 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final List<String> _initialPrompts = [
-    "이 사진에 대해서 이야기를 시작해볼까요?",
-    "이 사진은 어떤 사진인지 설명해주세요.",
-    "이 사진에는 어떤 추억이 있나요?",
-    "우와, 이 사진은 어떤 사진인가요?"
+    "Shall we start talking about this photo?",
+    "Can you tell me a little about this photo?",
+    "What memories does this photo bring back for you?",
+    "Oh, what a lovely photo! What is happening here?"
   ];
   late String _screenMessage;
 
   //String _screenMessage = '대화를 시작하려면 마이크 버튼을 누르세요'; // ChatBubble에 출력되는 메시지
   late String _speaker = "Assistant";
   bool _isTTSEnabled = true;
-  bool isAttiView = true;
+  bool isAloraView = true;
   String currentImage = '';
   String converseImage = '';
 
@@ -124,11 +125,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void toggleView() {
     setState(() {
-      isAttiView = !isAttiView;
+      isAloraView = !isAloraView;
       currentImage =
-      isAttiView ? 'lib/assets/Alora/default1.png' : widget.memory.img!;
+      isAloraView ? 'lib/assets/Alora/default1.png' : widget.memory.img!;
       converseImage =
-      isAttiView ? widget.memory.img! : 'lib/assets/Alora/AloraFullFace.png';
+      isAloraView ? widget.memory.img! : 'lib/assets/Alora/AloraFullFace.png';
     });
   }
 
@@ -143,6 +144,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void _speakMessage(String message) async {
+    await flutterTts.setLanguage('en-US');
     await flutterTts.speak(message);
   }
 
@@ -151,10 +153,10 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: SimpleAppBar(
-        title: '\'${widget.memory.imgTitle}\' 기억 회상 대화',
+        title: '\'${widget.memory.imgTitle}\' Memory Chat',
       ),
       body: Stack(children: [
-        isAttiView
+        isAloraView
             ? Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -188,7 +190,7 @@ class _ChatScreenState extends State<ChatScreen> {
             fit: BoxFit.fitWidth,
           ),
         ),
-        isAttiView
+        isAloraView
             ? Positioned(
             top: 10,
             right: MediaQuery
@@ -232,7 +234,7 @@ class _ChatScreenState extends State<ChatScreen> {
               .size
               .width * 0.05,
           child: VoiceButton(
-            isAttiView: isAttiView,
+            isAloraView: isAloraView,
             toggleView: toggleView,
             role: "Assistant",
             updateScreenMessage: (message, role) {
@@ -275,7 +277,7 @@ class VoiceButton extends StatefulWidget {
   final String role;
   final Function(String, String) updateScreenMessage;
   final Function(bool) updateTTSEnabled;
-  final bool isAttiView;
+  final bool isAloraView;
   final VoidCallback toggleView; // 이미지 토글 함수
   final List<MemoryNoteModel> albumList;
 
@@ -284,7 +286,7 @@ class VoiceButton extends StatefulWidget {
   //final Function(String) updatedConverseImage;
 
   const VoiceButton({Key? key,
-    required this.isAttiView,
+    required this.isAloraView,
     required this.toggleView,
     required this.updateScreenMessage,
     required this.updateTTSEnabled,
@@ -300,10 +302,10 @@ class VoiceButton extends StatefulWidget {
 }
 
 class _VoiceButtonState extends State<VoiceButton> {
-  String _screenMessage = '대화를 시작하려면\n마이크 버튼을 누르세요';
+  String _screenMessage = 'Press the microphone button\nto start talking';
   final _chatbot = Chatbot();
   final stt.SpeechToText _speech = stt.SpeechToText();
-  String _spokenText = '버튼을 누르고 음성을 입력';
+  String _spokenText = 'Press the button and speak';
   bool _isListening = false;
   final int _staticTimeout = 5; // 정적 상태 타임아웃 (2초)
   int _elapsedTime = 0;
@@ -318,8 +320,8 @@ class _VoiceButtonState extends State<VoiceButton> {
     super.initState();
     _requestMicrophonePermission(); // 페이지가 처음 로딩될 때 권한 요청
     chatMessages.add(ChatMessage(
-      sender: 'ATTI',
-      text: '대화시작', //대화시작
+      sender: kAssistantSender,
+      text: 'Conversation started',
       date: DateTime.now(),
     ));
   }
@@ -346,6 +348,7 @@ class _VoiceButtonState extends State<VoiceButton> {
 
     if (available) {
       _speech.listen(
+        listenOptions: stt.SpeechListenOptions(localeId: 'en_US'),
         onResult: (result) async {
           setState(() {
             _spokenText = result.recognizedWords;
@@ -405,7 +408,7 @@ class _VoiceButtonState extends State<VoiceButton> {
   void _appendMessage(String role, String message) {
     //print('_appendMessage 실행');
     if (role == "Assistant") {
-      // 아띠 메시지 -> 화면에 텍스트로도 띄우고 + TTS도 함
+      // Alora 메시지 -> 화면에 텍스트로도 띄우고 + TTS도 함
       setState(() {
         _screenMessage = message;
         widget.updateScreenMessage(_screenMessage, "Assistant");
@@ -472,7 +475,7 @@ class _VoiceButtonState extends State<VoiceButton> {
       setState(() {
         // 메시지를 chatMessages 목록에 추가합니다.
         chatMessages.add(ChatMessage(
-          sender: 'I',
+          sender: kUserSender,
           text: message,
           date: DateTime.now(),
         ));
@@ -519,7 +522,7 @@ class _VoiceButtonState extends State<VoiceButton> {
 
       // 대화 리스트에 API 응답 메시지 추가
       chatMessages.add(ChatMessage(
-        sender: 'ATTI',
+        sender: kAssistantSender,
         text: response,
         date: DateTime.now(),
       ));
@@ -598,7 +601,7 @@ class _VoiceButtonState extends State<VoiceButton> {
             child: GestureDetector(
                 onTap: widget.toggleView,
                 child: Text(
-                  widget.isAttiView ? '사진 보기' : '아띠 보기',
+                  widget.isAloraView ? 'View Photo' : 'View Alora',
                   style: const TextStyle(
                       color: Colors.black,
                       fontSize: 24,
@@ -647,7 +650,7 @@ class _VoiceButtonState extends State<VoiceButton> {
                       albumList: widget.albumList));
                 },
                 child: const Text(
-                  '대화 종료',
+                  'End Chat',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 24,

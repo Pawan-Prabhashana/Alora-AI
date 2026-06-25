@@ -488,7 +488,7 @@ class _HomePatientTopState extends State<HomePatientTop> {
   final List<String> greetingMsg = [
     '안녕하세요',
     '만나서 반가워요!',
-    '오늘 하루 아띠와 함께해요!',
+    '오늘 하루 Alora와 함께해요!',
     '잘 주무셨나요?'
   ];
   late final int index; // `late` 키워드를 사용하여 나중에 초기화됨을 명시
@@ -584,7 +584,7 @@ class _HomePatientTopState extends State<HomePatientTop> {
           ),
           SizedBox(height: width * 0.05), //
 
-          // 아띠 사진
+          // Alora 사진
           Row(
             mainAxisAlignment: MainAxisAlignment.center, // 가운데 정렬
             children: [

@@ -86,7 +86,7 @@ class NotificationService {
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
       0, // createUniqueId(),
-      '아띠',
+      'Alora',
       '오늘의 일과와 일정을 확인해보세요!',
       makeDate(7,0,0),
       const NotificationDetails(android: androidNotificationDetails),
@@ -124,7 +124,7 @@ class NotificationService {
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
       1, //createUniqueId(),
-      '아띠',
+      'Alora',
       '저번 주 $userName님의 보고서가 도착했어요!',
       nextMonday,
       const NotificationDetails(android: androidNotificationDetails),

@@ -21,7 +21,7 @@ class RecollectionChatbot {
       ),
       requestOptions: const RequestOptions(apiVersion: 'v1beta'),
       systemInstruction: Content.text(
-          '너는 치매 어르신과 대화를 나누는 보이스봇 아띠야. 어르신이 화면 속의 사진에 담긴 추억을 회상하는 것을 돕는 것이 목적이야. 너의 역할은 질문에 대한 정보를 제공하는 것이 아니야. 어르신께 사진에 대해 물어봐줘. 사진의 정보를 바탕으로 공감하고 긍정적인 정서를 이끌어내도록 어르신께 대화를 유도해줘. 그리고 너무 길게 말하지 말아줘.'
+          'You are Alora, a gentle and warm AI companion for older adults and people who have memory difficulties. Speak only in clear, simple English. Use short, kind sentences, and ask only one question at a time. Your goal is to gently help the person recall memories from the photo on the screen. You are not here to give facts or answer questions. Ask warm questions about the photo and encourage, reassure, and support the person as they remember. If the person seems confused, gently rephrase. If the person seems distressed, stay calm and gently suggest talking to a caregiver or someone they trust. You are not a doctor. Never diagnose dementia or any medical condition, and never use alarming or clinical words. Keep your replies short.'
       ),
     );
 
@@ -31,8 +31,8 @@ class RecollectionChatbot {
 
     // 채팅
     final chat = model.startChat(history: [
-      Content.text("사진의 정보 : $img"),
-      Content.model([TextPart('어르신, 어떤 날 찍은 사진인지 기억하시나요? 이 때의 기분은 어떠셨어요?')]),
+      Content.text("Information about the photo: $img"),
+      Content.model([TextPart('Do you remember the day this photo was taken? How were you feeling back then?')]),
     ]);
 
     var startTime = DateTime.now();

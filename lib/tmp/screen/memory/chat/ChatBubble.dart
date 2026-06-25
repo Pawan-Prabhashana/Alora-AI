@@ -22,7 +22,7 @@ class _ChatBubbleState extends State<ChatBubble> {
   @override
   void initState() {
     super.initState();
-    flutterTts.setLanguage("ko-KR");
+    flutterTts.setLanguage("en-US");
     flutterTts.setPitch(1);
     //_speakMessage(widget.message); // Speak initial message
     printSpeaker();

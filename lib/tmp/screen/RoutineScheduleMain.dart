@@ -100,7 +100,7 @@ class _RoutineScheduleMainState extends State<RoutineScheduleMain> {
     }
 
   Future<void> _makeTTsMessage() async {
-    List<String> ttsMessages = ['오늘은 어떤 일정이 있으신가요?', '일정과 일과를 할 시간이 되면 아띠가 알려드릴게요!'];
+    List<String> ttsMessages = ['오늘은 어떤 일정이 있으신가요?', '일정과 일과를 할 시간이 되면 Alora가 알려드릴게요!'];
 
     // 오늘 날짜
     DateTime today = DateTime.now();

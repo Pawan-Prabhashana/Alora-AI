@@ -105,7 +105,7 @@ class _MemoryInfoState extends State<MemoryInfo> {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xffFFC215)),
                   child: const Text(
-                    '아띠와 대화하기',
+                    'Chat with Alora',
                     style: TextStyle(fontSize: 24, color: Colors.black),
                   ),
                 ),

@@ -19,7 +19,7 @@ class BeforeSave extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('\'${memory.imgTitle}\' 기억 회상 대화'),
+          title: Text('\'${memory.imgTitle}\' Memory Chat'),
           backgroundColor: Colors.white,
         ),
         body: SingleChildScrollView(
@@ -42,7 +42,7 @@ class BeforeSave extends StatelessWidget {
                 const SizedBox(height: 15),
                 const Text(
                   textAlign: TextAlign.center,
-                  '아띠와 나눈 대화를\n기록할까요?',
+                  'Would you like to save\nyour chat with Alora?',
                   style: TextStyle(
                       fontFamily: 'PretendardRegular', fontSize: 30),
                 ),

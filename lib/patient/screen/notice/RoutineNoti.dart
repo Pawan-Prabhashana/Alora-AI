@@ -107,7 +107,7 @@ class _ScheduleNoti1State extends State<RoutineNoti> {
             SizedBox(
               height: width * 0.1,
             ),
-            // 기억친구 아띠 로고
+            // 기억친구 Alora 로고
             Container(
               alignment: Alignment.center,
               child: Image.asset(
@@ -135,7 +135,7 @@ class _ScheduleNoti1State extends State<RoutineNoti> {
             ),
             SizedBox(height: width * 0.06,),
 
-            // 아띠 말고 사진으로
+            // Alora 말고 사진으로
             Container(
               alignment: Alignment.center,
               width: width * 0.65,

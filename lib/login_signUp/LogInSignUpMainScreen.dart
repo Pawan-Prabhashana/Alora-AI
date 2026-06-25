@@ -57,7 +57,7 @@ class _LogInSignUpMainScreenState extends State<LogInSignUpMainScreen> {
               ),
               SizedBox(
                 width: width*0.9,
-                child: const Text("반가워요! 저는 아띠에요!",
+                child: const Text("반가워요! 저는 Alora에요!",
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     letterSpacing: 0.05,

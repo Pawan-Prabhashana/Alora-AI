@@ -116,7 +116,7 @@ class _ScheduleNoti2State extends State<ScheduleNoti2> {
             SizedBox(
               height: width * 0.1,
             ),
-            // 기억친구 아띠 로고
+            // 기억친구 Alora 로고
             Container(
               alignment: Alignment.center,
               child: Image.asset(

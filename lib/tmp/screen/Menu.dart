@@ -31,7 +31,7 @@ class _MenuState extends State<Menu> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('기억친구 아띠',
+                  const Text('기억친구 Alora',
                       style: TextStyle(
                           fontFamily: 'UhBee', fontSize: 25
                       )

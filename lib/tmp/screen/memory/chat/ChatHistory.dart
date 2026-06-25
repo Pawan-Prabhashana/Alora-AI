@@ -1,4 +1,5 @@
 import 'package:alora_ai/commons/SimpleAppBar.dart';
+import 'package:alora_ai/data/memory/assistant_sender.dart';
 import 'package:alora_ai/data/memory/chatController.dart';
 import 'package:alora_ai/data/memory/memory_note_model.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class ChatHistory extends StatelessWidget {
           List<Message> messages = snapshot.data!;
           return Scaffold(
             appBar: const SimpleAppBar(
-              title: '아띠와 회상 대화 기록',
+              title: 'Memory Chat History with Alora',
             ),
             body: SingleChildScrollView(
               child: Container(
@@ -62,7 +63,7 @@ class ChatHistory extends StatelessWidget {
                           style: const TextStyle(fontSize: 24),
                         ),
                         Text(
-                          '\'${memory.imgTitle}\' 기억',
+                          '\'${memory.imgTitle}\' Memory',
                           style: const TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         ),
@@ -124,7 +125,7 @@ class ChatMessage extends StatelessWidget {
                   ? MainAxisAlignment.end
                   : MainAxisAlignment.start,
               children: <Widget>[
-                if (message.sender == 'Atti')
+                if (isAssistantSender(message.sender))
                   const CircleAvatar(
                     backgroundImage: AssetImage('lib/assets/Alora/AloraFace.png'),
                   ),

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:alora_ai/data/report/dangerword_controller.dart';
 import 'package:alora_ai/data/report/emotion_controller.dart';
 import 'package:alora_ai/data/memory/Chatbot.dart';
+import 'package:alora_ai/data/memory/assistant_sender.dart';
 import 'package:alora_ai/patient/screen/memory/chat/ChatBubble.dart';
 import 'package:alora_ai/patient/screen/memory/gallery/MainMemory.dart';
 import 'package:alora_ai/data/memory/RecollectionData.dart';
@@ -16,7 +17,7 @@ import '../../../../carer/screen/memory/gallery/CarerMainMemory.dart';
 import '../../../../data/auth_controller.dart';
 
 class ChatMessage {
-  final String sender; // I or ATTI
+  final String sender; // kUserSender ('I') or kAssistantSender ('Alora'); legacy assistant tags still recognized via isAssistantSender
   final String text; // 대화 내용
   final DateTime date; // 시간
   ChatMessage({
@@ -103,7 +104,7 @@ class RecollectionChat extends StatefulWidget {
 }
 
 class _RecollectionChatState extends State<RecollectionChat> {
-  String _currentMessage = '대화를 시작하려면 마이크 버튼을 누르세요'; // 내가 한 대화
+  String _currentMessage = 'Press the microphone button to start talking'; // 내가 한 대화
   late String _speaker = "Assistant";
   final FlutterTts flutterTts = FlutterTts();
   String _currentImage = 'lib/assets/Alora/default1.png'; // 기본 이미지 설정
@@ -113,7 +114,7 @@ class _RecollectionChatState extends State<RecollectionChat> {
   @override
   void initState() {
     super.initState();
-    flutterTts.setLanguage("ko-KR");
+    flutterTts.setLanguage("en-US");
     flutterTts.setPitch(1);
     _speakMessage(_currentMessage);
   }
@@ -145,7 +146,7 @@ class _RecollectionChatState extends State<RecollectionChat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('\'${widget.recollection.title}\'기억 회상 대화'),
+        title: Text('\'${widget.recollection.title}\' Memory Chat'),
       ),
       body: Stack(children: [
         Container(
@@ -237,10 +238,10 @@ class VoiceButton extends StatefulWidget {
 }
 
 class _VoiceButtonState extends State<VoiceButton> {
-  String _currentMessage = '대화를 시작하려면\n마이크 버튼을 누르세요';
+  String _currentMessage = 'Press the microphone button\nto start talking';
   final _chatbot = Chatbot();
   final stt.SpeechToText _speech = stt.SpeechToText();
-  String _spokenText = '버튼을 누르고 음성을 입력';
+  String _spokenText = 'Press the button and speak';
   bool _isListening = false;
   final int _staticTimeout = 5; // 정적 상태 타임아웃 (2초)
   int _elapsedTime = 0;
@@ -256,8 +257,8 @@ class _VoiceButtonState extends State<VoiceButton> {
     super.initState();
     _requestMicrophonePermission(); // 페이지가 처음 로딩될 때 권한 요청
     chatMessages.add(ChatMessage(
-      sender: 'ATTI',
-      text: '대화시작', //대화시작
+      sender: kAssistantSender,
+      text: 'Conversation started',
       date: DateTime.now(),
     ));
   }
@@ -284,6 +285,7 @@ class _VoiceButtonState extends State<VoiceButton> {
 
     if (available) {
       _speech.listen(
+        listenOptions: stt.SpeechListenOptions(localeId: 'en_US'),
         onResult: (result) async {
           setState(() {
             _spokenText = result.recognizedWords;
@@ -329,7 +331,7 @@ class _VoiceButtonState extends State<VoiceButton> {
   }
 
   void _appendMessage(String role, String message) {
-    if (role == "Assistant") { // 아띠 메시지 -> 화면에 텍스트로도 띄우고 + TTS도 함
+    if (role == "Assistant") { // Alora message -> shown on screen as text and spoken via TTS
       setState(() {
         _currentMessage = message;
         widget.updatedMessage(_currentMessage, "Assistant");
@@ -393,7 +395,7 @@ class _VoiceButtonState extends State<VoiceButton> {
       setState(() {
         // 메시지를 chatMessages 목록에 추가합니다.
         chatMessages.add(ChatMessage(
-          sender: 'I',
+          sender: kUserSender,
           text: message,
           date: DateTime.now(),
         ));
@@ -435,7 +437,7 @@ class _VoiceButtonState extends State<VoiceButton> {
       _showEmotionImage(-1);
 
       chatMessages.add(ChatMessage(
-        sender: 'ATTI',
+        sender: kAssistantSender,
         text: response,
         date: DateTime.now(),
       ));
@@ -546,7 +548,7 @@ class _VoiceButtonState extends State<VoiceButton> {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xffFFF5DB), shape: const CircleBorder()),
                 child: const Text(
-                  '대화\n종료',
+                  'End\nChat',
                   style: TextStyle(color: Color(0xffA38130)),
                 )),
           ),
