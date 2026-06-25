@@ -10,9 +10,9 @@ export 'package:firebase_storage/firebase_storage.dart';
 export 'package:firebase_auth/firebase_auth.dart';
 
 // commons ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-export 'package:alora_ai/commons/AttiAppBar.dart';
-export 'package:alora_ai/commons/AttiBottomNavi.dart';
-export 'package:alora_ai/commons/AttiSpeechBubble.dart';
+export 'package:alora_ai/commons/AloraAppBar.dart';
+export 'package:alora_ai/commons/AloraBottomNavi.dart';
+export 'package:alora_ai/commons/AloraSpeechBubble.dart';
 export 'package:alora_ai/commons/BottomNextButton.dart';
 export 'package:alora_ai/commons/colorPallet.dart';
 export 'package:alora_ai/commons/DetailPageTitle.dart';

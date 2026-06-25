@@ -47,8 +47,8 @@ List<String> AngryMsg = [
   '화나',
   '짜증',
   '분노',
-]; // 'lib/assets/Atti/Angry.png'
-List<String> CalmMsg = ['편안', '그리운', '그립', '추억']; // 'lib/assets/Atti/Calm.png'
+]; // 'lib/assets/Alora/Angry.png'
+List<String> CalmMsg = ['편안', '그리운', '그립', '추억']; // 'lib/assets/Alora/Calm.png'
 List<String> FunnyMsg = [
   '안녕',
   '신나',
@@ -61,14 +61,14 @@ List<String> FunnyMsg = [
   '아싸',
   '좋아',
   '좋았',
-]; // 'lib/assets/Atti/Funny.png'
+]; // 'lib/assets/Alora/Funny.png'
 List<String> HmmMsg = [
   '고민',
   '곰곰',
   '힘든',
   '힘들',
-]; // 'lib/assets/Atti/Hmm.png'
-//List<String> NormalMsg = ['그렇군요', '군요', ]; // 'lib/assets/Atti/Normal.png'
+]; // 'lib/assets/Alora/Hmm.png'
+//List<String> NormalMsg = ['그렇군요', '군요', ]; // 'lib/assets/Alora/Normal.png'
 List<String> SadMsg = [
   '걱정',
   '불안',
@@ -80,7 +80,7 @@ List<String> SadMsg = [
   '아파',
   '아팠',
   '우울'
-]; // 'lib/assets/Atti/Shy.png'
+]; // 'lib/assets/Alora/Shy.png'
 List<String> SurprisedMsg = [
   '놀라',
   '놀랐',
@@ -90,7 +90,7 @@ List<String> SurprisedMsg = [
   '멋지',
   '멋진',
   '특별',
-]; // 'lib/assets/Atti/Surprised.png'
+]; // 'lib/assets/Alora/Surprised.png'
 
 class ChatScreen extends StatefulWidget {
   final MemoryNoteModel memory;
@@ -120,15 +120,15 @@ class _ChatScreenState extends State<ChatScreen> {
   String converseImage = '';
 
   final FlutterTts flutterTts = FlutterTts();
-  String _currentImage = 'lib/assets/Atti/default1.png'; // 기본 이미지 설정
+  String _currentImage = 'lib/assets/Alora/default1.png'; // 기본 이미지 설정
 
   void toggleView() {
     setState(() {
       isAttiView = !isAttiView;
       currentImage =
-      isAttiView ? 'lib/assets/Atti/default1.png' : widget.memory.img!;
+      isAttiView ? 'lib/assets/Alora/default1.png' : widget.memory.img!;
       converseImage =
-      isAttiView ? widget.memory.img! : 'lib/assets/Atti/AttiFullFace.png';
+      isAttiView ? widget.memory.img! : 'lib/assets/Alora/AloraFullFace.png';
     });
   }
 
@@ -138,7 +138,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final randomIndex = Random().nextInt(_initialPrompts.length);
     _screenMessage = _initialPrompts[randomIndex];
     _speakMessage(_screenMessage);
-    currentImage = 'lib/assets/Atti/default1.png';
+    currentImage = 'lib/assets/Alora/default1.png';
     converseImage = widget.memory.img!;
   }
 
@@ -531,32 +531,32 @@ class _VoiceButtonState extends State<VoiceButton> {
     setState(() {
       switch (index) {
         case 0: // AngryMsg
-          widget.updatedImage('lib/assets/Atti/worried.png');
-          //widget.updatedConverseImage('lib/assets/Atti/AttiWorriedFullFace.png');
+          widget.updatedImage('lib/assets/Alora/worried.png');
+          //widget.updatedConverseImage('lib/assets/Alora/AloraWorriedFullFace.png');
           break;
         case 1: // CalmMsg
-          widget.updatedImage('lib/assets/Atti/default2.png');
-          ///widget.updatedConverseImage('lib/assets/Atti/AttiFullFace.png');
+          widget.updatedImage('lib/assets/Alora/default2.png');
+          ///widget.updatedConverseImage('lib/assets/Alora/AloraFullFace.png');
           break;
         case 2: // FunnyMsg
-          widget.updatedImage('lib/assets/Atti/excited.png');
-          //widget.updatedConverseImage('lib/assets/Atti/AttiExcitedFullFace.png');
+          widget.updatedImage('lib/assets/Alora/excited.png');
+          //widget.updatedConverseImage('lib/assets/Alora/AloraExcitedFullFace.png');
           break;
         case 3: // HmmMsg
-          widget.updatedImage('lib/assets/Atti/happy.png');
-          //widget.updatedConverseImage('lib/assets/Atti/AttiHappyFullFace.png');
+          widget.updatedImage('lib/assets/Alora/happy.png');
+          //widget.updatedConverseImage('lib/assets/Alora/AloraHappyFullFace.png');
           break;
         case 4: // SadMsg
-          widget.updatedImage('lib/assets/Atti/sad.png');
-          //widget.updatedConverseImage('lib/assets/Atti/AttiSadFullFace.png');
+          widget.updatedImage('lib/assets/Alora/sad.png');
+          //widget.updatedConverseImage('lib/assets/Alora/AloraSadFullFace.png');
           break;
         case 5: // SurprisedMsg
-          widget.updatedImage('lib/assets/Atti/astonished.png');
-          //widget.updatedConverseImage('lib/assets/Atti/AttiAstonishedFullFace.png');
+          widget.updatedImage('lib/assets/Alora/astonished.png');
+          //widget.updatedConverseImage('lib/assets/Alora/AloraAstonishedFullFace.png');
           break;
         default:
-          widget.updatedImage('lib/assets/Atti/default1.png'); // 기본 이미지
-          //widget.updatedConverseImage('lib/assets/Atti/AttiFullFace.png');
+          widget.updatedImage('lib/assets/Alora/default1.png'); // 기본 이미지
+          //widget.updatedConverseImage('lib/assets/Alora/AloraFullFace.png');
           break;
       }
     });

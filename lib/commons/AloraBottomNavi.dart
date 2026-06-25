@@ -10,12 +10,12 @@ import '../carer/screen/routine_shcedule/CarerRoutineScheduleMain.dart';
 import '../data/auth_controller.dart';
 import '../patient/screen/routine_schedule/RoutineScheduleMain.dart';
 
-class CustomBottomNavigationBar extends StatelessWidget {
+class AloraBottomNavi extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
   final int currentIndex;
   final Function(int) onTap;
 
-  CustomBottomNavigationBar({super.key, required this.currentIndex, required this.onTap});
+  AloraBottomNavi({super.key, required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

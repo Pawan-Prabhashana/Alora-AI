@@ -39,7 +39,7 @@ class _LogInSignUpMainScreenState extends State<LogInSignUpMainScreen> {
                           child: Align(
                             alignment: Alignment.center,
                             child: Image.asset(
-                                'lib/assets/images/LoginSignupPageATTI.png',
+                                'lib/assets/images/LoginSignupPageALORA.png',
                                 width: width * 0.5,
                             ),
                           ),

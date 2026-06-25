@@ -598,7 +598,7 @@ class _CarerRoutineScheduleMainState extends State<CarerRoutineScheduleMain> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),

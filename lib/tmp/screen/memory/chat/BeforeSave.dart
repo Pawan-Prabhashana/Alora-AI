@@ -105,7 +105,7 @@ class BeforeSave extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.25,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/assets/Atti/default1.png'),
+            image: AssetImage('lib/assets/Alora/default1.png'),
             fit: BoxFit.contain,
           ),
         ),
