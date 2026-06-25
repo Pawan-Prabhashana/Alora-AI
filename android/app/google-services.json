@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "1017190386757",
-    "project_id": "atti-44a56",
-    "storage_bucket": "atti-44a56.appspot.com"
+    "project_number": "726437616352",
+    "project_id": "alora-ai-1135b",
+    "storage_bucket": "alora-ai-1135b.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1017190386757:android:f09064106be240dc46272c",
+        "mobilesdk_app_id": "1:726437616352:android:e9f9900d95b275e5ef0e85",
         "android_client_info": {
-          "package_name": "com.example.atti"
+          "package_name": "com.aloraai.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "726437616352-8sgph009f7la0q3vo15qr17u6av4165n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBkwCjKfvLsXaKBnFxl7p-AHjK1AGRWGM8"
+          "current_key": "AIzaSyCrfR4ExxowkcqnlNrdBpfE3XOeOZRUEYM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726437616352-8sgph009f7la0q3vo15qr17u6av4165n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
