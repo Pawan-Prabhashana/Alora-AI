@@ -53,6 +53,7 @@ app.*.map.json
 build/
 .dart_tool/
 node_modules/
+android/.kotlin/
 
 # OS / IDE
 .DS_Store

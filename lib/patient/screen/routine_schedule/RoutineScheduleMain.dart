@@ -317,7 +317,7 @@ class _RoutineScheduleMainState extends State<RoutineScheduleMain> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image(
-                    image: AssetImage('lib/assets/Atti/$randomImageName'),
+                    image: AssetImage('lib/assets/Alora/$randomImageName'),
                     width: width * 0.6)
               ],
             ),
@@ -326,7 +326,7 @@ class _RoutineScheduleMainState extends State<RoutineScheduleMain> {
             // 아띠 말풍선
             SizedBox(
               width: width * 0.9,
-              child: AttiSpeechBubble(
+              child: AloraSpeechBubble(
                   comment: isEditMode
                       ? '수정할 내용을 눌러 일과 및 일정을 편집해요'
                       : selectedMessage,
@@ -601,7 +601,7 @@ class _RoutineScheduleMainState extends State<RoutineScheduleMain> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),

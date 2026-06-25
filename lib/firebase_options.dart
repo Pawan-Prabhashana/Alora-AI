@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -53,10 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBkwCjKfvLsXaKBnFxl7p-AHjK1AGRWGM8',
-    appId: '1:1017190386757:android:f09064106be240dc46272c',
-    messagingSenderId: '1017190386757',
-    projectId: 'atti-44a56',
-    storageBucket: 'atti-44a56.appspot.com',
+    apiKey: 'AIzaSyCrfR4ExxowkcqnlNrdBpfE3XOeOZRUEYM',
+    appId: '1:726437616352:android:e9f9900d95b275e5ef0e85',
+    messagingSenderId: '726437616352',
+    projectId: 'alora-ai-1135b',
+    storageBucket: 'alora-ai-1135b.firebasestorage.app',
+  );
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAjgnS9PWdhZLQuHpBfHrbi-gLnQl7cjhI',
+    appId: '1:726437616352:web:418cdc4d7abbbc0bef0e85',
+    messagingSenderId: '726437616352',
+    projectId: 'alora-ai-1135b',
+    authDomain: 'alora-ai-1135b.firebaseapp.com',
+    storageBucket: 'alora-ai-1135b.firebasestorage.app',
+    measurementId: 'G-8HVDRT60YY',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyD8PwRfv_G17VEj0ZYDKJINTA0733AWdNM',
+    appId: '1:726437616352:ios:169d000dc66286d6ef0e85',
+    messagingSenderId: '726437616352',
+    projectId: 'alora-ai-1135b',
+    storageBucket: 'alora-ai-1135b.firebasestorage.app',
+    iosClientId: '726437616352-p4gtr4h7e0qfc8vh4pce0tgtk1b80e0a.apps.googleusercontent.com',
+    iosBundleId: 'com.aloraai.app.macos',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyD8PwRfv_G17VEj0ZYDKJINTA0733AWdNM',
+    appId: '1:726437616352:ios:10c056275e12cb5def0e85',
+    messagingSenderId: '726437616352',
+    projectId: 'alora-ai-1135b',
+    storageBucket: 'alora-ai-1135b.firebasestorage.app',
+    iosClientId: '726437616352-j2g70uv0qs2i2ahquoubqomnsbou86me.apps.googleusercontent.com',
+    iosBundleId: 'com.aloraai.app',
   );
 }

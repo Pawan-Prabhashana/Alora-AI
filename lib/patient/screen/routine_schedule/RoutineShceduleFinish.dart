@@ -16,7 +16,7 @@ class RoutineScheduleFinish extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.bottomCenter,
-            child: Image.asset('lib/assets/images/finish_atti.png'),
+            child: Image.asset('lib/assets/images/finish_alora.png'),
           ),
           Column(
             children: [
