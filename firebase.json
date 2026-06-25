@@ -1,1 +1,60 @@
-{"database":{"rules":"database.rules.json"},"firestore":{"rules":"firestore.rules","indexes":"firestore.indexes.json"},"functions":[{"source":"functions","codebase":"default","ignore":["node_modules",".git","firebase-debug.log","firebase-debug.*.log"],"predeploy":[]}],"flutter":{"platforms":{"android":{"default":{"projectId":"alora-ai-1135b","appId":"1:726437616352:android:e9f9900d95b275e5ef0e85","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"alora-ai-1135b","appId":"1:726437616352:ios:10c056275e12cb5def0e85","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"macos":{"default":{"projectId":"alora-ai-1135b","appId":"1:726437616352:ios:169d000dc66286d6ef0e85","uploadDebugSymbols":false,"fileOutput":"macos/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"alora-ai-1135b","configurations":{"android":"1:726437616352:android:e9f9900d95b275e5ef0e85","ios":"1:726437616352:ios:10c056275e12cb5def0e85","macos":"1:726437616352:ios:169d000dc66286d6ef0e85","web":"1:726437616352:web:418cdc4d7abbbc0bef0e85"}}}}}}
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": []
+    }
+  ],
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "alora-ai-1135b",
+          "appId": "1:726437616352:android:e9f9900d95b275e5ef0e85",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "alora-ai-1135b",
+          "appId": "1:726437616352:ios:10c056275e12cb5def0e85",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "macos": {
+        "default": {
+          "projectId": "alora-ai-1135b",
+          "appId": "1:726437616352:ios:169d000dc66286d6ef0e85",
+          "uploadDebugSymbols": false,
+          "fileOutput": "macos/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "alora-ai-1135b",
+          "configurations": {
+            "android": "1:726437616352:android:e9f9900d95b275e5ef0e85",
+            "ios": "1:726437616352:ios:10c056275e12cb5def0e85",
+            "macos": "1:726437616352:ios:169d000dc66286d6ef0e85",
+            "web": "1:726437616352:web:418cdc4d7abbbc0bef0e85"
+          }
+        }
+      }
+    }
+  }
+}
