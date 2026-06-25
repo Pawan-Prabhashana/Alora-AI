@@ -481,7 +481,7 @@ class _TodayToDoState extends State<TodayToDo> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
           currentIndex: _selectedIndex, onTap: _onItemTapped),
     );
   }

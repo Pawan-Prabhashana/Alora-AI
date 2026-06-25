@@ -40,7 +40,7 @@ class _IntroPageState extends State<IntroPage> {
         child: Align(
           alignment: Alignment.center,
           child: Image.asset(
-            'lib/assets/images/MainATTI.png',
+            'lib/assets/images/MainALORA.png',
             width: width * 0.6,
           ),
         ),

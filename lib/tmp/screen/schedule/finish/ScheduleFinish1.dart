@@ -16,7 +16,7 @@ class ScheduleFinish1 extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.bottomCenter,
-            child: Image.asset('lib/assets/images/new_finish_atti.png'),
+            child: Image.asset('lib/assets/images/new_finish_alora.png'),
           ),
           Column(
             children: [

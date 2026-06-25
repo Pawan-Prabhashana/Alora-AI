@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:alora_ai/index.dart';
 
-Widget AttiSpeechBubble({
+Widget AloraSpeechBubble({
   required String comment,
   required Color color,
 }) =>

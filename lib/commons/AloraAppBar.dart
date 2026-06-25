@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 
 import '../tmp/screen/Menu.dart';
 
-class AttiAppBar extends StatelessWidget implements PreferredSizeWidget {
+class AloraAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final List<Widget>? actions;
   final bool showNotificationsIcon;
   final bool showMenu;
 
-  const AttiAppBar({super.key, 
+  const AloraAppBar({super.key, 
     this.title,
     this.actions,
     this.showNotificationsIcon = true,

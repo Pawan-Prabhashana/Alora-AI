@@ -47,8 +47,8 @@ List<String> AngryMsg = [
   '화나',
   '짜증',
   '분노',
-]; // 'lib/assets/Atti/Angry.png'
-List<String> CalmMsg = ['편안', '그리운', '그립', '추억']; // 'lib/assets/Atti/Calm.png'
+]; // 'lib/assets/Alora/Angry.png'
+List<String> CalmMsg = ['편안', '그리운', '그립', '추억']; // 'lib/assets/Alora/Calm.png'
 List<String> FunnyMsg = [
   '안녕',
   '신나',
@@ -61,14 +61,14 @@ List<String> FunnyMsg = [
   '아싸',
   '좋아',
   '좋았',
-]; // 'lib/assets/Atti/Funny.png'
+]; // 'lib/assets/Alora/Funny.png'
 List<String> HmmMsg = [
   '고민',
   '곰곰',
   '힘든',
   '힘들',
-]; // 'lib/assets/Atti/Hmm.png'
-//List<String> NormalMsg = ['그렇군요', '군요', ]; // 'lib/assets/Atti/Normal.png'
+]; // 'lib/assets/Alora/Hmm.png'
+//List<String> NormalMsg = ['그렇군요', '군요', ]; // 'lib/assets/Alora/Normal.png'
 List<String> SadMsg = [
   '걱정',
   '불안',
@@ -80,7 +80,7 @@ List<String> SadMsg = [
   '아파',
   '아팠',
   '우울'
-]; // 'lib/assets/Atti/Shy.png'
+]; // 'lib/assets/Alora/Shy.png'
 List<String> SurprisedMsg = [
   '놀라',
   '놀랐',
@@ -90,7 +90,7 @@ List<String> SurprisedMsg = [
   '멋지',
   '멋진',
   '특별',
-]; // 'lib/assets/Atti/Surprised.png'
+]; // 'lib/assets/Alora/Surprised.png'
 
 class RecollectionChat extends StatefulWidget {
   final RecollectionData recollection;
@@ -106,7 +106,7 @@ class _RecollectionChatState extends State<RecollectionChat> {
   String _currentMessage = '대화를 시작하려면 마이크 버튼을 누르세요'; // 내가 한 대화
   late String _speaker = "Assistant";
   final FlutterTts flutterTts = FlutterTts();
-  String _currentImage = 'lib/assets/Atti/default1.png'; // 기본 이미지 설정
+  String _currentImage = 'lib/assets/Alora/default1.png'; // 기본 이미지 설정
   bool _isTTSEnabled = true;
   final AuthController authController = Get.put(AuthController());
 
@@ -447,25 +447,25 @@ class _VoiceButtonState extends State<VoiceButton> {
     setState(() {
       switch (index) {
         case 0: // AngryMsg
-          widget.updatedImage('lib/assets/Atti/worried.png');
+          widget.updatedImage('lib/assets/Alora/worried.png');
           break;
         case 1: // CalmMsg
-          widget.updatedImage('lib/assets/Atti/default2.png');
+          widget.updatedImage('lib/assets/Alora/default2.png');
           break;
         case 2: // FunnyMsg
-          widget.updatedImage('lib/assets/Atti/excited.png');
+          widget.updatedImage('lib/assets/Alora/excited.png');
           break;
         case 3: // HmmMsg
-          widget.updatedImage('lib/assets/Atti/happy.png');
+          widget.updatedImage('lib/assets/Alora/happy.png');
           break;
         case 4: // SadMsg
-          widget.updatedImage('lib/assets/Atti/sad.png');
+          widget.updatedImage('lib/assets/Alora/sad.png');
           break;
         case 5: // SurprisedMsg
-          widget.updatedImage('lib/assets/Atti/astonished.png');
+          widget.updatedImage('lib/assets/Alora/astonished.png');
           break;
         default:
-          widget.updatedImage('lib/assets/Atti/default1.png'); // 기본 이미지
+          widget.updatedImage('lib/assets/Alora/default1.png'); // 기본 이미지
           break;
       }
     });

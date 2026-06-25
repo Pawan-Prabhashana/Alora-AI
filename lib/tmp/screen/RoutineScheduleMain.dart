@@ -1,7 +1,7 @@
 import 'package:alora_ai/tmp/screen/routine/register/RoutineRegister1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:alora_ai/commons/AttiBottomNavi.dart';
+import 'package:alora_ai/commons/AloraBottomNavi.dart';
 import 'package:intl/intl.dart';
 import '../../commons/RoutineModal.dart';
 import '../../data/auth_controller.dart';
@@ -253,7 +253,7 @@ class _RoutineScheduleMainState extends State<RoutineScheduleMain> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image(
-                  image: AssetImage('lib/assets/Atti/$randomImageName'),
+                  image: AssetImage('lib/assets/Alora/$randomImageName'),
                   width: width * 0.6)
               ],
             ),
@@ -441,7 +441,7 @@ class _RoutineScheduleMainState extends State<RoutineScheduleMain> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),

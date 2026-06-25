@@ -1,5 +1,5 @@
-import 'package:alora_ai/commons/AttiAppBar.dart';
-import 'package:alora_ai/commons/AttiBottomNavi.dart';
+import 'package:alora_ai/commons/AloraAppBar.dart';
+import 'package:alora_ai/commons/AloraBottomNavi.dart';
 import 'package:alora_ai/tmp/screen/report/ReportDetail.dart';
 //import 'package:alora_ai/screen/report/_ReportDetail.dart';
 //import 'package:alora_ai/screen/report/ReportNew.dart';
@@ -101,9 +101,9 @@ class _HomeCarerState extends State<HomeCarer> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AttiAppBar(
+      appBar: AloraAppBar(
         title: Image.asset(
-          'lib/assets/AttiBlack.png',
+          'lib/assets/AloraBlack.png',
           width: 150,
         ),
         showNotificationsIcon: true,
@@ -135,7 +135,7 @@ class _HomeCarerState extends State<HomeCarer> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
@@ -191,7 +191,7 @@ class _HomePatientTopState extends State<HomePatientTop> {
             mainAxisAlignment: MainAxisAlignment.center, // 가운데 정렬
             children: [
               Image(
-                  image: const AssetImage('lib/assets/Atti/standingAtti.png'),
+                  image: const AssetImage('lib/assets/Alora/standingAlora.png'),
                   width: MediaQuery.of(context).size.width * 0.8),
             ],
           ),

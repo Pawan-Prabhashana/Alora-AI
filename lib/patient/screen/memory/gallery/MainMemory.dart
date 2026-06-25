@@ -1,4 +1,4 @@
-import 'package:alora_ai/commons/AttiSpeechBubble.dart';
+import 'package:alora_ai/commons/AloraSpeechBubble.dart';
 import 'package:alora_ai/data/memory/RecollectionData.dart';
 import 'package:alora_ai/patient/screen/memory/gallery/MemoryAlbum.dart';
 import 'package:alora_ai/tmp/screen/memory/gallery/RecollectionDetail.dart';
@@ -11,7 +11,7 @@ import 'package:alora_ai/data/auth_controller.dart';
 import 'package:alora_ai/data/memory/memory_note_model.dart';
 import 'package:alora_ai/data/memory/memory_note_service.dart';
 import 'package:alora_ai/patient/screen/memory/gallery/AddButton.dart';
-import 'package:alora_ai/commons/AttiBottomNavi.dart';
+import 'package:alora_ai/commons/AloraBottomNavi.dart';
 import 'dart:math';
 import '../../../../commons/colorPallet.dart';
 
@@ -218,7 +218,7 @@ class _MainGalleryState extends State<MainMemory>
                   const SizedBox(height: 20),
                   SizedBox(
                     width: width * 0.9,
-                    child: AttiSpeechBubble(
+                    child: AloraSpeechBubble(
                         comment: '사진을 눌러\n그 기억에 대해 이야기해요',
                         color: colorPallet.lightYellow),
                   ),
@@ -233,7 +233,7 @@ class _MainGalleryState extends State<MainMemory>
                   right: 0,
                   child: const AddButton())
             ]),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: AloraBottomNavi(
         currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {
@@ -309,7 +309,7 @@ class _MainGalleryState extends State<MainMemory>
       mainAxisAlignment: MainAxisAlignment.center, // 가운데 정렬
       children: [
         Image(
-            image: const AssetImage('lib/assets/Atti/Stars.png'),
+            image: const AssetImage('lib/assets/Alora/Stars.png'),
             width: MediaQuery.of(context).size.width * 0.57),
       ],
     );
